@@ -1,3 +1,4 @@
+"use strict";
 const YouAPI = require("youtube-thumbnail");
 
 class LibraryFunctions {

@@ -1,0 +1,25 @@
+{
+  "database":{
+    "host": "localhost",
+    "port": 27017,
+    "databaseName": "mishaPortal",
+    "databaseUser": "AnZuev",
+    "databasePassword": "hotwinter"
+  },
+  "logger":{
+    "appenders":[
+      {
+        "type": "file",
+        "filename": "default.log",
+        "title": "default"
+      }]
+  },
+  "general":{
+    "port": 3000
+  },
+  "appearence":{
+      "videosPerPage": 30,
+      "leftSideBarTagsAmount": 10
+  },
+  "botAvailableFor":[32038583]
+}

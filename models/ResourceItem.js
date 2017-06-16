@@ -130,7 +130,7 @@ ResourceItem.statics.getUnwatchedVideos = function (options) {
         filterObj.watchedBy = mongoose.Types.ObjectId(options.userId);
     }
     return this.find(filterObj)
-        .sort({created: 1})
+        .sort({created: -1})
         .skip((options.skip || 0)*config.appearence.videosPerPage)
         .limit(config.appearence.videosPerPage)
         .select({"url": 1, "tags": 1, "title": 1})

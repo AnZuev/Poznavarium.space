@@ -1,5 +1,6 @@
 'use strict';
 import * as React from 'react';
+import {NeedMoreVideosButton} from "./NeedMoreVideosButton.jsx";
 
 export class Controller extends React.Component{
     constructor(props){
@@ -66,6 +67,7 @@ export class Controller extends React.Component{
         return (
             <p className="content__topMenu">
                 {tabs}
+                <NeedMoreVideosButton />
             </p>
         )
     }

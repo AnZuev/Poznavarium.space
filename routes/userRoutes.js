@@ -3,7 +3,8 @@
 const router = require('koa-router')();
 const _ = require("underscore");
 const ResourceItem = ModelRegister.getModel("ResourceItem");
-
+const {Telegram} = require("telegraf");
+const telegram = new Telegram(process.env.telegramBotToken, {});
 
 // get index page
 router.get("/", async (ctx, next) => {
@@ -72,7 +73,6 @@ router.get("/api/videos/get/:tags/:skip", async (ctx, next) => {
         _.map(videos, (video) => {
             video.thumbnail = LibraryFunctions.getYoutubeThumbnail(video.url).url
         });
-        console.log(videos);
         if(videos.length  === 0){
             ctx.status = 204;
         }else{
@@ -83,5 +83,10 @@ router.get("/api/videos/get/:tags/:skip", async (ctx, next) => {
         await next;
 });
 
+router.post("/api/etc/needMoreVideos", async (ctx) => {
+    let chatId = require('config').botAvailableFor[0];
+    telegram.sendMessage(chatId, "Hi! I want you to add new videos");
+    ctx.status = 200;
+});
 
 module.exports = router;
